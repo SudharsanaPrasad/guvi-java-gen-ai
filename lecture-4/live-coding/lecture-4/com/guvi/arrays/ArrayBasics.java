@@ -7,6 +7,7 @@ public class ArrayBasics {
         // array declaration and initialization
         int randomInt = 5;
         int[] array = { 10, 20, 30, 40 };
+        System.out.println(array);
         array[0] = 50;
         System.out.println(array[0]);
         System.out.println(array[1]);
