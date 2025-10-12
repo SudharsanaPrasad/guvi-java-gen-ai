@@ -1,0 +1,35 @@
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# VS Code
+.vscode/
+
+# Maven
+target/
+
+# Gradle
+.build/
+build/
+.bin/
+out/
+# Gradle cache
+.gradle/
+
+# JetBrains “out” dir (some setups)
+out/
+
+# -------- Logs & dumps --------
+*.log
+hs_err_pid*
+replay_pid*
+
+# -------- Environment / local config --------
+.env
+.env.*
+*.local.properties
+
+my-reference/
