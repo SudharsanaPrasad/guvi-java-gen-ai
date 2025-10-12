@@ -17,6 +17,7 @@ public class Upi implements Payable {
     @Override
     public String pay(int amount) {
         boolean permitted = validate(amount);
+        //boolean permitted = Payable.super.validate(amount);
         // not permitted -> meaning false
         if(!permitted) {
             // means not permitted
@@ -30,10 +31,5 @@ public class Upi implements Payable {
     @Override
     public int balanceAmount() {
         return balanceAmount;
-    }
-
-    @Override
-    public boolean validate(int amount) {
-        return Payable.super.validate(amount);
     }
 }
