@@ -19,5 +19,8 @@ public class ReadInput {
         System.out.print("Enter your name: ");
         String name = reader.readLine();
         System.out.println("Hello, "+ name);
+        String city = reader.readLine();
+        System.out.println("City " + city);
+        reader.close();
     }
 }
