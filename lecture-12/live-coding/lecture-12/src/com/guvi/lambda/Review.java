@@ -14,10 +14,12 @@ public class Review {
         Printer printer = new Printer();
         printer.print("Textbook");
 
-        final String str = "Thirumani";
+        // effectively final
+        String str = "Thirumani";
+        String name = "Shalini";
         IPrintTwo myPrinter2 = () -> {
             System.out.println("Item to print: " + str);
         };
-//        str = "Nikhil";
+        name = "Nikhil";
     }
 }
