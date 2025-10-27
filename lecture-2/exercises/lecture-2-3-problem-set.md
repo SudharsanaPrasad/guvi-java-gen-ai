@@ -8,6 +8,14 @@ A store is open on a 24-hour clock from 09:00 to 17:00 inclusive. Given:
 int hour = 14;
 ```
 Write a single if with a compound condition that sets boolean isOpen to true when the store is open; otherwise set it to false.
+```java
+if (hour > 9 || hour < 17){
+    isOpen = true;
+}
+else{
+    isOpen = false;
+}
+```
 
 2. Water state by temperature  
 Given:
@@ -19,6 +27,18 @@ a) 'S' when tempC <= 0
 b) 'L' when 1 <= tempC && tempC <= 99  
 c) 'G' when tempC >= 100
 
+```java
+if (temC <= 0){
+    state = 'S';
+}
+else if (tempC >= 1 && tempC <= 99){
+    state = 'L';
+}
+else if(tempC >= 100){
+    state ='G';
+}
+```
+
 3. Safe processing guard  
 A system should call process() only when it is ready and the input is within limits. Use these stubs and values:
 ```java
@@ -28,6 +48,12 @@ static void process() { /* provided */ }
 int value = 120;
 ```
 Write a single if that calls process() only when both conditions are satisfied.
+```java
+if (ready == true && withinLimit(int x)){
+    process();
+}
+
+```
 
 4. Exam grading ladder  
 Given:
@@ -41,12 +67,23 @@ c) 'C' for 70..79
 d) 'D' for 60..69  
 e) 'F' for 0..59
 
+```java
+if (score <= 100 && score >= 90){
+    grade = 'A';
+}else if(score <= 89 && score => 80){
+    grade = 'B';
+}else if ...
+```
+
 5. Candidate eligibility rule  
 A candidate is eligible if they have at least 2 years of experience and either hold a certification or have at least 3 portfolio items. Given:
 ```java
 int years = 3;
 boolean hasCert = false;
 int portfolio = 4;
+if ((hascert == true||portfolio >= 3) && years >= 2){
+
+}
 ```
 Set boolean eligible accordingly.
 
@@ -57,7 +94,20 @@ b) next 150 units (51..200) cost 10 each
 c) remaining units (201 and above) cost 8 each  
 Given:
 ```java
-int units = 205;
+int units = 201;
+int price = 0;
+if (units > 50){
+    price = 50*12;
+    if (units > 200){
+        price += 150*10;
+        price += (units-200)*8;
+        }else {
+            price += (units-50)*10;
+        }
+}else{
+    price = units*12;
+}
+
 ```
 Compute total int price using an if / else if / else ladder.
 
@@ -80,9 +130,9 @@ Set int ratio to a / b only when b != 0; otherwise set ratio = 0.
 Start from this incorrect logic:
 ```java
 int x = 60; String band;
-if (x <= 60) { band = "low"; }
-else if (x < 60 || x <= 80) { band = "mid"; }
-else if (x >= 80) { band = "high"; }
+if (x < 60) { band = "low"; }
+else if (x >= 60 || x <= 80) { band = "mid"; }
+else if (x > 80) { band = "high"; }
 ```
 Rewrite it with precise, non-overlapping ranges and assign the correct band for x = 60.
 
@@ -90,6 +140,9 @@ Rewrite it with precise, non-overlapping ranges and assign the correct band for 
 Access is granted when the person has an ID, is an adult, is not banned, and has either paid or is under the limit. Given:
 ```java
 boolean hasID = true, adult = true, underLimit = false, paid = true, notBanned = true;
+if(hasID == true && adult == true && notBanned == true &&(paid == true || underLimit == true)){
+    canProceed = true;
+}
 ```
 Set boolean canProceed accordingly.
 
@@ -100,6 +153,23 @@ Set boolean canProceed accordingly.
 Given:
 ```java
 int day = 3;
+String shortName =  "";
+switch(day){
+    case 1: shortName = "Mon";
+    break;
+    case 2: shortName = "Tue";
+    break;
+    case 3: shortName = "Wed";
+    break;
+    case 4: shortName = "Thu";
+    break;
+    case 5: shortName = "Fri";
+    break;
+    case 6: shortName = "Sat";
+    break;
+    case 7: shortName = "Sun";
+    break;
+}
 ```
 Set String shortName to one of "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" using a classic switch with a break in every case.
 
@@ -175,13 +245,24 @@ Print exactly:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 ```
 Use a for loop and single spaces between numbers.
-
+```java
+for (int i = 1; i <=15; i++){
+    System.out.print(i);
+    System.out.print(" ");
+}
+```
 2. Countdown fixed range  
 Print exactly:
 ```
 9 8 7 6 5 4 3 2 1 0
 ```
 Use a for loop that starts at 9 and ends at 0, inclusive.
+```java
+for (int i = 9; i >=0; i--){
+    System.out.print(i);
+    System.out.print(" ");
+}
+```
 
 3. Tens inclusive  
 Print exactly:
@@ -189,12 +270,34 @@ Print exactly:
 0 10 20 30 40 50 60 70 80 90 100
 ```
 Use a single for header. Include 100 exactly once.
-
+```java
+for (int i = 0; i <=100; i+=10){
+    System.out.print(i);
+    System.out.print(" ");
+}
+```
 4. Skip with continue  
 From 1 to 60, print one line containing all numbers that are not divisible by 4 and not divisible by 6, separated by single spaces. Use continue to skip disallowed numbers.
+```java
+for (int i = 1; i <=60; i++){
+    if(i%4 == 0 || i%6 == 0){
+        continue;
+    }else{
+        System.out.print(i);
+        System.out.print(" ");
+    }
+}
+```
 
 5. First square above threshold  
 Find the smallest integer k such that k * k > 1000 using a while loop and break. After the loop, print k on its own line.
+```java
+int k = 1;
+        while (k*k<1000){
+            k++;
+        }
+        System.out.println(k);
+```
 
 6. Frame pattern  
 Print this 4x6 frame using nested loops:
@@ -204,7 +307,24 @@ Print this 4x6 frame using nested loops:
 #....#
 ######
 ```
-
+```java
+for (int i = 0; i<4; i++){
+            if(i == 0 || i == 3){
+                for(int j = 0; j<6; j++){
+                    System.out.print("#");
+                }
+                System.out.println("");
+            }
+            if(i == 1 || i == 2){
+                System.out.print("#");
+                for(int j = 0; j<4; j++){
+                    System.out.print(".");
+                }
+                System.out.print("#");
+                System.out.println("");
+            }
+        }
+```
 
 ## D) Functions (method basics, signature, params, overloading)
 
@@ -219,7 +339,11 @@ b) a private static method named checkNonNegative that returns a boolean and tak
 3. withinInclusive and sample calls  
 Implement this method:
 ```java
-static boolean withinInclusive(int x, int lo, int hi)
+static boolean withinInclusive(int x, int lo, int hi){
+    if(x >= lo && x <= hi){
+        return true;
+    }
+}
 ```
 It returns true when lo <= x && x <= hi.  
 In main, create three boolean variables and assign:  
