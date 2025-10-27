@@ -5,13 +5,24 @@ import java.util.List;
 
 public class LoggingQueueLegacy {
     public static void main(String[] args) {
-        List queue = new ArrayList();
+        List<String> queue = new ArrayList<>();
         queue.add("User logged in");
-        queue.add(404); // accidentally added an Integer
+        // 404 => "404"
+        queue.add(String.valueOf(404)); // accidentally added an Integer
 
-        for (Object event : queue) {
-            String log = (String) event; // Consider: what happens here?
-            System.out.println(log.toUpperCase());
+        // Integer temp = new Integer(404);
+        // queue.add(temp.toString());
+
+        //queue.add(Integer.toString(404));
+
+        for (String event : queue) {
+            /*
+            "User logged in" -> casting to String is fine
+            404 -> will this get cast to String? Eg: "404"
+            404 (Object) -> Integer -> String
+             */
+            //String log = event; // Consider: what happens here?
+            System.out.println(event.toUpperCase());
         }
     }
 }
