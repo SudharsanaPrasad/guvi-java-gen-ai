@@ -12,10 +12,11 @@ Task:
 public class GridSums {
     public static void main(String[] args) {
         // 3x3 matrix, r = 3, c = 3
+        // if the 2D array has 4 rows and 6 columns... how do we tackle it?
         int[][] grid = {
-            {5, 2, 3},  // 10
-            {1, 4, 6},  // 11
-            {7, 8, 2}   // 17
+            {5, 2, 3,7},  // 17
+            {1, 4, 6,0},  // 11
+            {7, 8, 2,23}   // 40
           // 13,14,11
         };
         findMaxSums(grid);
@@ -39,9 +40,13 @@ public class GridSums {
         int maxColumn = Integer.MIN_VALUE;    // -2^31
         for(var i = 0; i < grid.length; i++) {
             int sum = 0;
-            // when i = 0,
+            // for ith row, compute sum across the column
             for(var j = 0; j < grid[i].length; j++) {
                 sum += grid[i][j];
+            }
+            // if -2^31 < 10
+            if(maxRow < sum) {
+                maxRow = sum;
             }
 
             int sumColumn = 0;
@@ -54,10 +59,7 @@ public class GridSums {
                 maxColumn = sumColumn;
             }
 
-            // if -2^31 < 10
-            if(maxRow < sum) {
-                maxRow = sum;
-            }
+
 
             // maxRow = Math.max(maxRow, sum);
         }
