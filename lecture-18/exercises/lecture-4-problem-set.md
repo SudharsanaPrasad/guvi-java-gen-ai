@@ -55,3 +55,42 @@ Example:
 Input: "ccaabbb"
 Output: 5
 (substring "aabbb" is one of the solutions)
+
+### StringBuilder
+
+#### Problem 1
+
+Write a method that compresses a string by replacing consecutive repeated characters with the character followed by its count.
+
+Example:
+Input: "aaabbccccd"
+Output: "a3b2c4d1"
+
+#### Problem 2
+
+Given a sentence, generate an abbreviation by taking the first letter of each word and capitalizing it.
+
+Example:
+Input: "national aeronautics space administration"
+Output: "NASA"
+
+
+### StringBuffer
+
+#### Problem 1
+
+Simulate multiple threads appending parts of a sentence to a shared StringBuffer. Each thread should append one fragment (subject, verb, object). Print the final combined sentence after all threads finish.
+
+Example Output (possible order):
+Thread 1: Appending 'Java'
+Thread 2: Appending 'supports'
+Thread 3: Appending 'multithreading.'
+Final sentence: Java supports multithreading.
+
+#### Problem 2
+
+Write a method that takes a sentence and reverses the order of its words using a StringBuffer. The method should be thread-safe and can be safely called from multiple threads.
+
+Example:
+Input: "Learning Java with threads"
+Output: "threads with Java Learning"
