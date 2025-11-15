@@ -19,6 +19,7 @@ public class BacktrackingVariation {
      * @param currentSum   the sum of the subsequence, current
      * @param K
      * index++ - dicsus
+     * [] -> [2] -> current=[2,3],currentSum=5....
      */
     private static void backtrack(int[] nums, int index,
                                   List<Integer> current, int currentSum, int K) {
