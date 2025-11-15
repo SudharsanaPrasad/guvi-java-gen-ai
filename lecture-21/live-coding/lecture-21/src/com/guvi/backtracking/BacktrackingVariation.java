@@ -23,11 +23,13 @@ public class BacktrackingVariation {
     private static void backtrack(int[] nums, int index,
                                   List<Integer> current, int currentSum, int K) {
         // Pruning condition
-        // if the currentSum > K -> no further exploration required
+        // if the currentSum > K -> no further exploration required; return
 
         // Base case
-        // if the index == array.length - 1 --> we've reached the end of the array
+        // if the index == nums.length - 1 --> we've reached the end of the array
             // at this point, currentSum <= K
+            // print current
+            // return
 
         // decision 1: TAKE nums[index]
         // choosing to include the current element in the subsequence
