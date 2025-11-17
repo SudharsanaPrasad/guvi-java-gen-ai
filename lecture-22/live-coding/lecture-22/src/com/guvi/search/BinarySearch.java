@@ -1,13 +1,9 @@
 package com.guvi.search;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 
-    /**
-     * "divide and conquer"
-     * @param input
-     * @param target
-     * @return
-     */
     public static int binarySearch(int[] nums, int target) {
         int low = 0;
         int high = nums.length - 1;
@@ -15,7 +11,7 @@ public class BinarySearch {
         // we do not know how many subproblems has to be solved before we find the target?
         while(low <= high) {
             int mid = (low + high) / 2;
-
+            System.out.println("low " + low + " mid " + mid + " high " + high);
             if(nums[mid] == target) {
                 return mid;
             } else if(target < nums[mid]) {
@@ -41,6 +37,5 @@ public class BinarySearch {
         System.out.println("Index of target " + targetOnLeft + " is: " + binarySearch(sorted, targetOnLeft));
         System.out.println("Index of target " + targetOnRight + " is: " + binarySearch(sorted, targetOnRight));
         System.out.println("Index of target " + targetNotFound + " is: " + binarySearch(sorted, targetNotFound));
-
     }
 }
