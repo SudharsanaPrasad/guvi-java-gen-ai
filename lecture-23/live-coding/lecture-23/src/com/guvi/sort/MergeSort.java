@@ -77,6 +77,8 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] arr =  { 5, 2, 4, 6, 1, 3 };
+        SelectionSort.printArray(arr);
         mergeSort(arr);
+        SelectionSort.printArray(arr);
     }
 }
