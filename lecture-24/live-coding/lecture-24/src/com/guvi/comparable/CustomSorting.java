@@ -6,7 +6,7 @@ public class CustomSorting {
 
     public static void main(String[] args) {
         Student[] students = {
-            new Student(3, "pamu"),
+            new Student(3, "Pamu"),
             new Student(1, "Tuvesh"),
             new Student(2, "Thirumalini"),
         };
