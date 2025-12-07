@@ -119,6 +119,16 @@ public class CustomHashMap<K, V> {
     }
 
     public String toString() {
-        // TBD
+        StringBuilder sb = new StringBuilder();
+        sb.append("{ ");
+        for (Node<K, V> node : buckets) {
+            while (node != null) {
+                sb.append(node.key).append("=").append(node.value).append(", ");
+                node = node.next;
+            }
+        }
+        if (size > 0) sb.setLength(sb.length() - 2);   // remove last ", "
+        sb.append(" }");
+        return sb.toString();
     }
 }
