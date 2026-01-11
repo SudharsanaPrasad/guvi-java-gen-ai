@@ -1,4 +1,4 @@
-# MySQL Task: Clinic Database Setup (Project Simulation)
+# MySQL Task: Clinic Database Setup
 
 ## Scenario
 
@@ -63,7 +63,7 @@ Insert at least **8 appointments** into the `appointments` table. Your dataset m
 
 Use realistic dates (any year is fine).
 
-## Part D: Read Queries (SELECT + WHERE)
+## Part D: Read Queries
 
 Write SQL queries for each of the following:
 
@@ -88,7 +88,7 @@ Write SQL queries for each of the following:
 
     * Delete one appointment using `appointment_id`.
 
-## Part F: Relational Challenge (Foreign Key + INNER JOIN)
+## Part F: Relational Challenge
 
 You will now enforce the relationship between appointments and patients, and then use a join to answer a reporting question.
 
