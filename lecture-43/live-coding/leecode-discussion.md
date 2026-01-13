@@ -25,11 +25,11 @@ Convert both strings to `char[]`, sort them, then compare element-by-element.
 
 **Steps**
 
-1. If lengths differ → return `false`
+1. If lengths differ -> return `false`
 2. `char[] a = s.toCharArray()`, `char[] b = t.toCharArray()`
 3. Sort both arrays
 4. Loop through arrays and compare each index
-5. If all match → return `true`
+5. If all match -> return `true`
 
 **Example**
 
@@ -38,15 +38,15 @@ Convert both strings to `char[]`, sort them, then compare element-by-element.
 
   * `s -> a a a g m n r`
   * `t -> a a a g m n r`
-* Same → `true`
+* Same -> `true`
 
 ### 2) Ransom Note
 
 #### Problem (quick examples)
 
-* `ransomNote = "a"`, `magazine = "b"` → `false`
-* `ransomNote = "aa"`, `magazine = "ab"` → `false` (need 2 a’s)
-* `ransomNote = "aa"`, `magazine = "aab"` → `true`
+* `ransomNote = "a"`, `magazine = "b"` -> `false`
+* `ransomNote = "aa"`, `magazine = "ab"` -> `false` (need 2 a’s)
+* `ransomNote = "aa"`, `magazine = "aab"` -> `true`
 
 #### Approach: Frequency array (26 letters)
 
@@ -62,9 +62,9 @@ Same idea as anagram/frequency counting.
 
    * for each char `c` in `ransomNote`:
 
-     * if `count[c - 'a'] == 0` → not available → return `false`
+     * if `count[c - 'a'] == 0` -> not available -> return `false`
      * else `count[c - 'a']--`
-4. If we finish → return `true`
+4. If we finish -> return `true`
 
 **Mental model**
 Coins in your pocket (`magazine`) and a bill to pay (`ransomNote`). Each time you use a coin, the count decreases.
@@ -75,9 +75,9 @@ Coins in your pocket (`magazine`) and a bill to pay (`ransomNote`). Each time yo
 
 * `s = "loveleetcode"`
 
-  * `l` repeats, `o` repeats, `v` is unique → index `2`
+  * `l` repeats, `o` repeats, `v` is unique -> index `2`
   * Output: `2`
-* `s = "aabb"` → no unique char → `-1`
+* `s = "aabb"` -> no unique char -> `-1`
 
 #### Approach 1: 2-pass frequency array
 
@@ -88,11 +88,11 @@ We don’t need nested loops.
 1. Build frequency counts:
 
    * `int[] freq = new int[26]`
-   * loop over string → `freq[c - 'a']++`
+   * loop over string -> `freq[c - 'a']++`
 2. Find the first index where freq is 1:
 
    * loop again over string by index `i`
-   * if `freq[s.charAt(i) - 'a'] == 1` → return `i`
+   * if `freq[s.charAt(i) - 'a'] == 1` -> return `i`
 3. Else return `-1`
 
 #### Approach 2: LinkedHashMap
@@ -105,13 +105,13 @@ We don’t need nested loops.
 
 #### Examples
 
-* `s = "egg"`, `t = "add"` → `true`
+* `s = "egg"`, `t = "add"` -> `true`
 
-  * `e ↔ a`, `g ↔ d`
-* `s = "foo"`, `t = "bar"` → `false`
+  * `e <-> a`, `g <-> d`
+* `s = "foo"`, `t = "bar"` -> `false`
 
-  * `o` would need to map to both `a` and `r` → not allowed
-* `s = "paper"`, `t = "title"` → `true`
+  * `o` would need to map to both `a` and `r` -> not allowed
+* `s = "paper"`, `t = "title"` -> `true`
 
 #### Approach (discussed): Two HashMaps to enforce “both directions”
 
@@ -122,8 +122,8 @@ We need a one-to-one mapping:
 
 So we use:
 
-* `sT`: map from `s` char → `t` char
-* `tS`: map from `t` char → `s` char
+* `sT`: map from `s` char -> `t` char
+* `tS`: map from `t` char -> `s` char
 
 **Steps**
 
@@ -131,14 +131,14 @@ So we use:
 2. `c1 = s.charAt(i)`, `c2 = t.charAt(i)`
 3. If `c1` already mapped in `sT`:
 
-   * if `sT.get(c1) != c2` → return `false`
+   * if `sT.get(c1) != c2` -> return `false`
    * else ok
 4. Else map it: `sT.put(c1, c2)`
 5. Do the same check in reverse for `tS`:
 
-   * if `tS` already has `c2` but maps to a different `c1` → `false`
+   * if `tS` already has `c2` but maps to a different `c1` -> `false`
    * else `tS.put(c2, c1)`
-6. End → return `true`
+6. End -> return `true`
 
 **How the “connection” is made (example)**
 `s = "egg"`, `t = "add"`
