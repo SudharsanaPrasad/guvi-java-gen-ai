@@ -7,20 +7,13 @@ import com.guvi.module4.student.repo.StudentRepository;
 import java.time.LocalDate;
 import java.util.UUID;
 
-// Thirumalini
 public class AttendanceService {
 
     // TODO:
     // Add fields:
     // StudentRepository repo, Notifier notifier
     // Constructor injection: AttendanceService(StudentRepository repo, Notifier notifier)
-    private final StudentRepository repo;
-    private final Notifier notifier;
 
-    public AttendanceService(StudentRepository repo, Notifier notifier){
-        this.repo=repo;
-        this.notifier=notifier;;
-    }
     public void markPresent(UUID studentId, LocalDate date) {
         // TODO:
         // 1) Find student via repo.findById(studentId)
@@ -29,15 +22,6 @@ public class AttendanceService {
 
         // Example message:
         // "Marked present on 2026-01-16"
-//        Student student= repo.findById(studentId);
-//
-//        if(student==null){
-//            throw new IllegalArgumentException("Student not found: " + studentId);
-//        }
-        Student student= repo.findById(studentId)
-            .orElseThrow(() -> new IllegalArgumentException("Student not found: " + studentId));
-        String attendanceMessage="Marked present on " + date;
-        notifier.send(student.getEmail(), attendanceMessage);
+
     }
 }
-

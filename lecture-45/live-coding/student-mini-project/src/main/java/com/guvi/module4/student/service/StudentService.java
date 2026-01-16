@@ -7,22 +7,31 @@ import com.guvi.module4.student.repo.StudentRepository;
 import java.util.List;
 import java.util.UUID;
 
+// Thirumani
 public class StudentService {
 
-    // TODO:
-    // 1) Add fields: StudentRepository repo, Notifier notifier
-    // 2) Constructor injection: StudentService(StudentRepository repo, Notifier notifier)
+    private final StudentRepository repo;
+    private final Notifier notifier;
+
+    // Constructor injection
+    public StudentService(StudentRepository repo, Notifier notifier) {
+        this.repo = repo;
+        this.notifier = notifier;
+    }
 
     public UUID registerStudent(String name, String email) {
-        // TODO:
-        // 1) Create UUID -> UUID id = UUID.randomUUID();
-        // 2) Create Student
-        // 3) repo.save(student)
-        // 4) notifier.send(email, welcomeMessage)
-        // 5) return UUID
+        UUID id = UUID.randomUUID();
+        Student student = new Student(id, name, email);
+        repo.save(student);
+
+        String welcomeMessage = "Welcome " + name + "your data stored successfully.";
+        notifier.send(email, welcomeMessage);
+
+        return id;
     }
 
     public List<Student> listStudents() {
-        // TODO: return ALL Students
+        return repo.findAll();
     }
 }
+
