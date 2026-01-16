@@ -1,6 +1,7 @@
 package com.guvi.module4.student.notify;
 
+// Tuvesh
 public interface Notifier {
     // TODO
-    // send(String to, String message) -> send a message to someone
+    void send(String to, String message);
 }
