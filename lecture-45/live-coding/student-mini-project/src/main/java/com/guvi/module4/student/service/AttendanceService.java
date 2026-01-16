@@ -9,13 +9,10 @@ import java.util.UUID;
 
 public class AttendanceService {
 
-    private final StudentRepository repo;
-    private final Notifier notifier;
-
-    public AttendanceService(StudentRepository repo, Notifier notifier) {
-        this.repo = repo;
-        this.notifier = notifier;
-    }
+    // TODO:
+    // Add fields:
+    // StudentRepository repo, Notifier notifier
+    // Constructor injection: AttendanceService(StudentRepository repo, Notifier notifier)
 
     public void markPresent(UUID studentId, LocalDate date) {
         // TODO:
@@ -23,9 +20,8 @@ public class AttendanceService {
         // 2) If not found, throw IllegalArgumentException("Student not found: " + studentId)
         // 3) If found, notifier.send(student.getEmail(), attendanceMessage)
 
-        Student student = repo.findById(studentId)
-                .orElseThrow(() -> new IllegalArgumentException("Student not found: " + studentId));
+        // Example message:
+        // "Marked present on 2026-01-16"
 
-        notifier.send(student.getEmail(), "Marked present on " + date);
     }
 }
